@@ -1,0 +1,85 @@
+$VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+$DesaturatedDarkBlue: hsl(214, 17%, 51%);
+$GrayishBlue: hsl(212, 23%, 69%);
+$LightGrayishBlue: hsl(210, 46%, 95%);
+
+$break-large: "only screen and (min-width : 768px)";
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+}
+
+body {
+  background: $LightGrayishBlue;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: auto 400px auto;
+  grid-template-rows: 50px 250px 1fr 50px;
+  justify-items: center;
+}
+h3 {
+  font-weight: 700;
+}
+
+@mixin gridSystem($col, $row) {
+  grid-column-start: $col;
+  grid-row-start: $row;
+}
+
+.image {
+  @include gridSystem(2, 2);
+
+  img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+}
+
+.body-bottom {
+  @include gridSystem(2, 3);
+  background-color: #ffffff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  .body {
+    margin: 25px 35px;
+    p {
+      margin-top: 10px;
+    }
+  }
+  .profile {
+    display: flex;
+    margin: 20px 35px;
+    padding-bottom: 20px;
+    .picture {
+      border-radius: 50%;
+    }
+    .name {
+      margin-left: 25px;
+    }
+
+    .icon {
+      margin-top: 10px;
+      margin-left: 75px;
+      width: 30px;
+      height: 30px;
+      background-color: $LightGrayishBlue;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $GrayishBlue;
+      }
+
+      .share-icon {
+        margin-left: 7px;
+        margin-top: 7px;
+      }
+    }
+  }
+}
+
+.share {
+  display: none;
+}
